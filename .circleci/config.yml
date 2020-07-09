@@ -1,7 +1,7 @@
 version: 2.1
 
-# orbs:
-#   python: circleci/python@0.2.1
+orbs:
+  python: circleci/python@0.2.1
 
 jobs:
   setup_dependencies:
@@ -28,11 +28,11 @@ jobs:
       - run:
           command: |
             python3 -m unittest -v
-  workflows:
-    version: 2.1
-    all:
-      jobs:
-        - setup_dependencies
-        - test:
-            requires:
-              - setup_dependencies
+workflows:
+  version: 2.1
+  all:
+    jobs:
+      - setup_dependencies
+      - test:
+          requires:
+            - setup_dependencies
